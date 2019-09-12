@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-// import {Route} from 'react-rou
-=======
 import {HashRouter,Route} from 'react-router-dom'
 import App from './App';
 import React,{Component} from 'react'
@@ -16,4 +13,4 @@ class RootRouter extends Component{
   }
 }
 export default RootRouter
->>>>>>> ldxdev
+
