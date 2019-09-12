@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 这里是dev分支
+=======
+这里是ldxdev分支
+>>>>>>> ldxdev
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
