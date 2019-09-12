@@ -1,11 +1,14 @@
-import React from 'react';
-function App(props) {
-  return (
+import React ,{Component}from 'react';
+import './index.less'
+import Nav from './components/nav'
+function App (props){
+    return (
     <div className="App">
-      <div>这里是导航</div>
+      
      {props.children}
     </div>
-  );
+  )
+
 }
 
-export default App;
+export default App
