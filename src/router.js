@@ -1,7 +1,7 @@
-import {HashRouter,Route} from 'react-router-dom'
+import {HashRouter,Route,Switch} from 'react-router-dom'
 import App from './App';
 import React,{Component} from 'react'
-import User from './pages/user/user'
+import User from './pages/user'
 class RootRouter extends Component{
   render(){
     return(
