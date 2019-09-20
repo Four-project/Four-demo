@@ -4,6 +4,8 @@ import React,{Component} from 'react'
 import Admin from 'pages/admin'
 import Login from 'pages/login'
 import FoodList from 'pages/foodlist'
+import UserList from 'pages/userlist'
+import UserAdd from 'pages/useradd'
 class RootRouter extends Component{
   render(){
     return(
@@ -15,6 +17,8 @@ class RootRouter extends Component{
             return(
               <Admin>
                 <Route path='/admin/food/foodlist' component={FoodList}></Route>
+                <Route path='/admin/owner/userlist' component={UserList}></Route>
+                <Route path='/admin/owner/useradd' component={UserAdd}></Route>
               </Admin>
             )
           }}> 

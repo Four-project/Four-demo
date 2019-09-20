@@ -24,17 +24,17 @@ let obj={
   {
     name:'用户管理',
     key:'2',
-    path:'/admin/user',
+    path:'/admin/owner',
     children:[
       {
         name:'用户列表',
         key:'2-0',
-        path:'/admin/user/userlist'
+        path:'/admin/owner/userlist'
       },
       {
         name:'添加用户',
         key:'2-1',
-        path:'/admin/user/useradd'
+        path:'/admin/owner/useradd'
       }
     ]
   },
