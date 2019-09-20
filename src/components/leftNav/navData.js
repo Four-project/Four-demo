@@ -7,18 +7,18 @@ let obj={
   {
     name:'商品管理',
     key:'1',
-    path:'/admin/food/',
+    path:'/admin/project/',
     children:[
       {
         name:'商品列表',
         key:'1-0',
-        path:'/admin/food/foodlist',
+        path:'/admin/project/projectlist',
       },
       {
         name:'商品添加',
         key:'1-1',
-        path:'/admin/food/foodadd'
-      },
+        path:'/admin/project/projectadd'
+      }
     ]
   },
   {
