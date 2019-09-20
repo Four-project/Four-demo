@@ -119,20 +119,20 @@ class Projectlist extends Component{
     //参数是有顺序的，filters参数是第二项
     console.log("filter打印",pagination, filters, sorter)
     let {pageSize,type,putaway}=this.state
-    let type1
-    if(filters.type){
+    let putaway1
+    if(filters.putaway){
       console.log('类型',filters)
-      if(filters.type.length!=0){
-        type1=filters.type[0] 
+      if(filters.putaway.length!=0){
+        putaway1=filters.putaway[0] 
       }else{
-        type1=type
+        putaway1=putaway
       }
     }else{
       console.log('未选中')
-      type1=type
+      putaway1=putaway
     }
-    console.log({pageSize,type1,putaway})
-    this.initData(1,pageSize,type1,putaway)
+    console.log({pageSize,type,putaway1})
+    this.initData(1,pageSize,type,putaway1)
   }
   initData=(page,pageSize,type,putaway)=>{//axios请求数据
     this.setState({loadding:true})

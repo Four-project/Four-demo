@@ -177,6 +177,48 @@ const projectModel=require('../../db/model/projectModel')
 			putawaySearch.putaway=putaway
 			console.log('分类查询',typeSearch,putawaySearch)
 		}
+		// switch(type){
+			// case '女装':
+				// typeSearch.type='女装';
+				// if(putaway=='是'){
+					// typeSearch.putaway='是';
+				// }else{
+					// typeSearch.putaway='否';
+				// }
+				// break;
+			// case '男装':
+				// typeSearch.type='男装';
+				// if(putaway=='是'){
+					// typeSearch.putaway='是';
+				// }else{
+					// typeSearch.putaway='否';
+				// }
+				// break;
+			// case '鞋子':
+				// typeSearch.type='鞋子';
+				// if(putaway=='是'){
+					// typeSearch.putaway='是';
+				// }else{
+					// typeSearch.putaway='否';
+				// }
+				// break;
+			// case '配饰':
+				// typeSearch.type='配饰';
+				// if(putaway=='是'){
+					// typeSearch.putaway='是';
+				// }else{
+					// typeSearch.putaway='否';
+				// }
+				// break;
+			// case '箱包':
+				// typeSearch.type='箱包';
+				// if(putaway=='是'){
+					// typeSearch.putaway='是';
+				// }else{
+					// typeSearch.putaway='否';
+				// }
+				// break;
+		// }
         projectModel.find({$or:[typeSearch,putawaySearch]})
         .then((data)=>{
             total=data.length
