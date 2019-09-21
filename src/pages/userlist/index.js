@@ -2,6 +2,8 @@ import React,{Component} from 'react'
 import { Table ,Pagination,Button ,Card, message,Popconfirm,Input,Select } from 'antd';
 import UserUpdate from '../userUpdate/index'
 import './index.less'
+import { Spin, Icon } from 'antd';
+
 // import {Card,Table,Pagination,Spin,Popconfirm,message} from 'antd'
 const { Option } = Select;
 class UserList extends Component {
@@ -21,7 +23,8 @@ class UserList extends Component {
       num:"",
       tel:"",
       station:"",
-      kword:''
+      kword:'',
+      loading:true
     }
   }
   columns = [
@@ -84,6 +87,19 @@ class UserList extends Component {
   toadd=()=>{
     this.props.history.push('/admin/owner/useradd')
   }
+  todel=()=>{
+    let {selectedRowKeys}=this.state
+    console.log(selectedRowKeys)
+    // this.$axios.get(`/hehe/admin/owner/del?_id=${selectedRowKeys}`)
+    // .then((data)=>{
+    //     if(data.err===0){
+    //       message.success("删除成功")
+    //       this.initData(this.state.page,this.state.pageSize)
+    //     }else{
+    //       message.error('删除失败请重试')
+    //     }
+    //   })
+  }
   update(record){
       this.setState({updateShow:!this.state.updateShow,record:record})
   }
@@ -109,6 +125,7 @@ class UserList extends Component {
   onSelectChange = selectedRowKeys => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
     this.setState({ selectedRowKeys });
+    
   };
   onChangeInput = e => {
     // this.setState({status:status,type:type,name:name,num:num,tel:tel,station:station})
@@ -135,7 +152,7 @@ class UserList extends Component {
     this.$axios.get(`/hehe/admin/owner/findByTypePage?page=${page}&pageSize=${pageSize}`)
     .then((data)=>{
       if(data.err===0){
-        this.setState({dataSource:data.list,total:data.total})
+        this.setState({dataSource:data.list,total:data.total,loading:false})
       }
     })
   }
@@ -144,7 +161,8 @@ class UserList extends Component {
     this.initData(page,pageSize)
   }
   render() {
-    const { selectedRowKeys ,status,type,name,num,tel,station,kword} = this.state;
+    const antIcon = <Icon type="loading" style={{ fontSize: 24 ,color:'#ccc'}} spin />;
+    const { selectedRowKeys,kword,_id,loading} = this.state;
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
@@ -200,7 +218,10 @@ class UserList extends Component {
           <Button onClick={this.toadd} className="add">新增</Button>
         </div>
         {!this.state.updateShow||<UserUpdate record={this.state.record} refreshfun={this.refresh}></UserUpdate>}
+        <Spin indicator={antIcon} spinning={loading}>
         <Table rowSelection={rowSelection} columns={this.columns} dataSource={this.state.dataSource} pagination={false}/>
+        </Spin>
+        <Button onClick={this.todel} className="add">全部删除</Button>
         <Pagination page={this.state.page} onChange={this.onChange} total={this.state.total} pageSize={this.state.pageSize}/>
       </Card>);
   }

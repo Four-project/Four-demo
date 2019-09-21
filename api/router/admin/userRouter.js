@@ -46,7 +46,7 @@ router.get("/add",(req,res)=>{
  */
 router.get("/del",(req,res)=>{
     let {_id}=req.query
-    UserModel.deleteOne({_id:_id})
+    UserModel.deleteOne({_id:_id} || {key:_id})
     .then((data)=>{
         res.send({err:0,msg:"删除成功"})
     })
