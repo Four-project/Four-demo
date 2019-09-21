@@ -2,7 +2,7 @@
 const express=require('express')
 const mongodb=require('./db/connect')
 const app=express()
-const middleWare=require('./middleWare/middleware')
+const middleWare=require('./middleware/middleware')
 const path=require('path')
 //解决跨域问题法一（需要安装插件）
 // const cors=require('cors')
