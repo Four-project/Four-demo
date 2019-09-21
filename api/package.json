@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
@@ -19,5 +20,10 @@
     "multer": "^1.4.2"
   },
   "devDependencies": {},
-  "description": ""
-}
+  "description": "",
+    "nodemailer": "^6.3.0",
+    "request": "^2.88.0",
+    "socket.io": "^2.2.0",
+    "ws": "^7.1.1"
+  }
+

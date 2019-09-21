@@ -1,22 +1,34 @@
-const express=require("express")
+
+const express=require('express')
+const multer=require('multer')//前端上传图片的模块 
+const fs=require('fs')
+const path=require('path')
 const router=express.Router()
-const multer=require("multer")
-const fs=require("fs")
-const path=require("path")
-router.use('/public',express.static(path.join(__dirname,'./www')))
-router.post("/picture",multer().single("img"),(req,res)=>{
-   
+/**
+ * @api {post} /admin/file/upload 文件上传
+ * @apiName upload
+ * @apiGroup file
+ * 
+ * @apiParam {String} img formdata格式图片
+ * 
+ * @apiSuccess {Number} err 错误码
+ * @apiSuccess {String} msg 错误信息
+ * @apiSuccess {String} imgpath 返回图片所在的相对路径
+ */
+router.post('/upload',multer().single('img'),(req,res)=>{
+    console.log(req.file)
     let {buffer,mimetype}=req.file
-     console.log(req.file)
-    let filename=(new Date()).getTime()+parseInt(Math.random()*999999)+parseInt(Math.random()*468376592173657)
-    let extname=mimetype.split("/")[1]
-    let path=`/public/images/${filename}.${extname}`
-    fs.writeFile(`./www/images/${filename}.${extname}`,buffer,(err)=>{
+    let filename=(new Date()).getTime()+parseInt(Math.random()*99999)+parseInt(Math.random()*4646878456459)
+    let extname=mimetype.split('/')[1]
+
+    let imgpath=`/public/images/${filename}.${extname}`
+    let dir=path.join(__dirname,'../../www/images')
+    fs.writeFile(`${dir}/${filename}.${extname}`,buffer,(err)=>{
+        console.log(err)           
         if(err){
-          console.log(err)
-            res.send({err:-1,msg:"上传失败"})
+            res.send({err:-1,msg:'上传失败'})
         }else{
-            res.send({err:0,msg:"好的",imgpath:path})
+            res.send({err:0,msg:'上传成功',imgpath:imgpath})
         }
     })
 })

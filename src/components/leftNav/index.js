@@ -2,6 +2,7 @@ import React,{Component}from 'react'
 import {Menu,Icon} from 'antd'
 import {withRouter} from 'react-router-dom'
 import navData from './navData'
+import './index.less'
 const {SubMenu}=Menu
 class LeftNav extends Component{
   constructor(){
@@ -23,23 +24,23 @@ class LeftNav extends Component{
     return arr.map((item)=>{
       if(item.children){
         return(
-          <SubMenu title={item.name}>
-            {/* 渲染item的时候需要根据1级还是二级进行递归 */}
-            {this.renderItem(item.children)}
-          </SubMenu>
+              <SubMenu title={item.name} className='item'>
+              {/* 渲染item的时候需要根据1级还是二级进行递归 */}
+              {this.renderItem(item.children)}
+            </SubMenu>
         )
       }else{
-        return(
-          <Menu.Item key={item.key} onClick={this.jump.bind(this,item.path)}>{item.name}</Menu.Item >
+        return( 
+            <Menu.Item className='item1' key={item.key} onClick={this.jump.bind(this,item.path)}>{item.name}</Menu.Item >
         )
       }
     })
   }
   render(){
     return(
-      <Menu theme='dark' mode="vertical">
+        <Menu theme='light' mode="vertical">
         {this.renderItem(this.state.data)}
-      </Menu>
+       </Menu>
     )
   }
 }

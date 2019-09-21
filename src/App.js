@@ -1,5 +1,4 @@
 import React ,{Component}from 'react';
-import './index.less'
 import { ConfigProvider ,Radio, 
   Calendar,} from 'antd';
 import enUS from 'antd/es/locale/en_US';
@@ -69,9 +68,9 @@ moment.locale('en');
 //   )
 // }
 // }
-function App(props) {
-  return (
-    <div className="App">
+function App (props){
+    return (
+    <div className="App"> 
      {props.children}
     
     </div>

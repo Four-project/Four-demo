@@ -3,9 +3,10 @@ import App from './App';
 import React,{Component} from 'react'
 import Admin from 'pages/admin'
 import Login from 'pages/login'
-import FoodList from 'pages/foodlist'
 import UserList from 'pages/userlist'
 import UserAdd from 'pages/useradd'
+import ProjectList from 'pages/projectlist'
+import ProjectAdd from 'pages/projectadd'
 class RootRouter extends Component{
   render(){
     return(
@@ -16,9 +17,10 @@ class RootRouter extends Component{
           <Route path='/admin' render={()=>{
             return(
               <Admin>
-                <Route path='/admin/food/foodlist' component={FoodList}></Route>
                 <Route path='/admin/owner/userlist' component={UserList}></Route>
                 <Route path='/admin/owner/useradd' component={UserAdd}></Route>
+                <Route path='/admin/project/projectlist' component={ProjectList}></Route>
+                <Route path='/admin/project/projectadd' component={ProjectAdd}></Route>
               </Admin>
             )
           }}> 
